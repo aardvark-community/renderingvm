@@ -104,7 +104,7 @@ times. This includes incremental processing of structural changes
 such as additions and removals of scene parts, as well as in-place
 updates of scene data. Our approach achieves a significant framerate increase for typical workloads and reasonable performance for
 high-frequency changes. Processing is performed in running time
-O(?), where ? is proportional to the size of the change and the optimized representation has no runtime overhead with respect to the
+O(n), where n is proportional to the size of the change and the optimized representation has no runtime overhead with respect to the
 underlying graphics API. This is achieved by tracking and applying
 all changes as incremental updates to appropriate data structures
 and by adaptively synthesizing a program of abstract machine code.
