@@ -3,12 +3,12 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=ISO-8859-15">
-<meta name="description" content="Attribute Grammars for Incremental Scene Graph Rendering">
+<meta name="description" content="An Incremental Rendering VM">
 		<meta http-equiv="cache-control" content="no-cache">
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="expires" content="0">
-		<meta name="keywords" content="Scenegraph, Attribute Grammar, Rendering Engine, Domain-Specific-Languages, Incremental Evaluation">
-        <title>Attribute Grammars for Incremental Scene Graph Rendering</title>
+		<meta name="keywords" content="optimization, dynamic compilation, virtual machines, Rendering Engine, Incremental Evaluation, Dependency Graph">
+        <title>An Incremental Rendering VM</title>
 
 <link rel="stylesheet" type="text/css" href="styles.css">
 
@@ -27,7 +27,7 @@
 <td style="text-align: center;">
 				<br>
 	
-                <h1>Attribute Grammars for Incremental Scene Graph Rendering</h1><br>
+                <h1>An Incremental Rendering VM</h1><br>
         <div align="center">
                 <table style="text-align: center; width: 600px;" border="0" cellpadding="0" cellspacing="0">
                 <tbody>
@@ -43,10 +43,10 @@
                 <tbody>
                     <tr>
                         <td style="text-align: center; width:25%;">
-                            <b><a href="https://www.vrvis.at/members/harald-steinlechner/">Harald Steinlechner<small><small><sup> 1</sup></small></small></a></b>
+                            <b>Georg Haaser<small><small><sup> 1</sup></small></small></b>
                         </td>
                         <td style="text-align: center; width:25%;">
-                            <b>Georg Haaser<small><small><sup> 1</sup></small></small></b>
+                            <b><a href="https://www.vrvis.at/members/harald-steinlechner/">Harald Steinlechner<small><small><sup> 1</sup></small></small></a></b>
                         </td>
                         <td style="text-align: center; width:25%;">
                             <b><a href="http://www.vrvis.at/about/team/maierhofer-stefan">Stefan Maierhofer<small><small><sup> 1</sup></small></small></a></b>
@@ -78,12 +78,12 @@
                 <tr>
                     <td>
                         <ul>
-                            <li> <i>GRAPP 2019 - Proceedings of the 14th International Conference on Computer Graphics Theory and Applications, Prague, Czech Republic, 25-27 February, 2019. )</i>, ?-?</li>
+                            <li> <i>HPG '15 Proceedings of the 5th High-Performance Graphics Conference</i>, ?-?</li>
                             <li> Publication Type: <i>Conference Paper with Conference Talk</i></li>
 
 
-                            <li> Year: <i>2019</i></li>
-                            <li> Keywords: <i>Scenegraph, Attribute Grammar, Rendering Engine, Domain-Specific-Languages, Incremental Evaluation</i></li>
+                            <li> Year: <i>2015</i></li>
+                            <li> Keywords: <i>optimization, dynamic compilation, virtual machines, Rendering Engine, Incremental Evaluation, Dependency Graph</i></li>
                         </ul>
                     </td>
                 </tr>
@@ -96,29 +96,29 @@
                 <tr>
                     <td>
                         <div align="justify">
-                            Scene graphs, as found in many visualization systems are a well-established concept for modeling virtual scenes in computer graphics.
-                            State-of-the-art approaches typically issue appropriate draw commands while traversing the graph.
-                            Equipped with a functional programming mindset we take a different approach and utilize attribute grammars
-                            as a central concept for modeling the problem domain declaratively.
-                            Instead of issuing draw commands imperatively, we synthesize first class objects describing
-                            appropriate draw commands.
-                            In order to make this approach
-                            practical in the face of dynamic changes to the scene graph, we
-                            utilize incremental evaluation, and thereby avoid repeated evaluation
-                            of unchanged parts.
-                            Our application prototypically demonstrates how complex systems
-                            benefit from domain-specific languages, declarative problem solving and the implications thereof.
-                            Besides from being concise and expressive, our solution demonstrates
-                            a real-world use case of self-adjusting computation which elegantly
-                            extends scene graphs with well-defined reactive semantics and efficient,
-                            incremental execution.
+                           We introduce an incremental rendering layer on top of standard
+graphics APIs such as OpenGL or DirectX in the form a virtual
+machine (VM), which efficiently maintains an optimized, compiled
+representation of arbitrary high-level scene representations at all
+times. This includes incremental processing of structural changes
+such as additions and removals of scene parts, as well as in-place
+updates of scene data. Our approach achieves a significant framerate increase for typical workloads and reasonable performance for
+high-frequency changes. Processing is performed in running time
+O(?), where ? is proportional to the size of the change and the optimized representation has no runtime overhead with respect to the
+underlying graphics API. This is achieved by tracking and applying
+all changes as incremental updates to appropriate data structures
+and by adaptively synthesizing a program of abstract machine code.
+In a final step this abstract program is incrementally mapped to executable machine code - comparable to what just-in-time compilers
+do. Our main contributions are (i) an abstract interface for rendering and visualization systems enabling incremental evaluation, (ii)
+adaptively optimized abstract machine code in the context of stateless graphics commands, and (iii) subsequent adaptive compilation
+to executable machine code including on-the-fly defragmentation.
 </td>
                 </tr>
             </table>
 
             <p></p>
 
-            <table width="100%" border="0" cellspacing="2" cellpadding="2">
+            <!--<table width="100%" border="0" cellspacing="2" cellpadding="2">
                 <tr><td><h2>Implementation</h2></td></tr>
                 <tr>
                     <td>
@@ -127,7 +127,7 @@
                         A simple demo showing extensibility can be found <a href="https://github.com/aardvark-platform/walkthrough/blob/master/src/WalkThroughSceneGraph/Concept.fs">here</a>.
                     </td>
                 </tr>
-            </table>
+            </table> -->
 
             <!--<table width="100%" border="0" cellspacing="2" cellpadding="2">
                 <tr><td><h2>Result Images</h2></td></tr>
@@ -209,9 +209,11 @@
                 <tr>
                     <td>
                         <div align="justify">
-                            We would like to thank Robert F. Tobler for all his contributions --- rest in peace.<br><br><br>
-                            VRVis is funded by BMVIT, BMDW, Styria, SFG and Vienna Business Agency in the scope of COMET - Competence Centers for Excellent Technologies (854174) which is managed by FFG.
-                        </div>
+                            The competence center VRVis is funded by BMVIT, BMWFJ, and
+City of Vienna (ZIT) within the scope of COMET - Competence
+Centers for Excellent Technologies. The program COMET is managed by FFG. This research was also partly funded by project
+"Replicate" (FFG FIT-IT, project no. 835948).
+</div>
                     </td>
                 </tr>
             </table>
@@ -230,7 +232,7 @@
 
                                 <td align='center' valign='top' width='180'><a href='paper-grapp.pdf'></a></td>
                                 <td>
-                                    <a href='paper-grapp.pdf'>Paper (Draft)</a>: [9 MB]
+                                    <a href='preprint.pdf'>Paper (Draft)</a>: [9 MB]
                                 </td>
                             </tr>
                             <!--tr>
@@ -242,29 +244,7 @@
                                 <td>
                                     <small>
                                         This is the authors preprint. The definitive version of the paper is be available at
-                                        <br>the <a href='https://www.computer.org/csdl/proceedings/grapp/2014/8078/00/07296051-abs.html' target=_blank>IEEE Computer Society</a>.
-                                    </small>
-                                </td>
-                            </tr>
-                        </table>
-
-                        <table width='100%' border='0'>
-                            <tr>
-                                <td align='center' valign='top' width='180'><a href='paper-ccis.pdf'></a></td>
-                                <td>
-                                    <a href='paper-ccis.pdf'>Extended Journal Paper (Draft)</a>: [7 MB]
-                                </td>
-                            </tr>
-                            <!--tr>
-                        <td align='center' valign='top' width='180'><a href=''><img src="img/pdf.gif" width="64" height="64" alt="" title="" border="0" /></td><td>
-                        <a href='./notavailable><a>Paper (Low Resolution)</a>: [? MB] (not yet available)</td>
-                    </tr-->
-                            <tr>
-                                <td align='center' valign='top' width='180'>&nbsp;</td>
-                                <td>
-                                    <small>
-                                        This is the authors preprint. The definitive version of the paper is be available at
-                                        <br>the <a href='https://link.springer.com/chapter/10.1007/978-3-319-25117-2_4' target=_blank>Springer</a>.
+                                        <br>the <a href='https://dl.acm.org/citation.cfm?id=2790073' target=_blank>ACM Digital Library</a>.
                                     </small>
                                 </td>
                             </tr>
@@ -294,32 +274,37 @@
 
             <p></p>
 
-            <!--<table width="100%" border="0" cellspacing="2" cellpadding="2">
+            <table width="100%" border="0" cellspacing="2" cellpadding="2">
                         <tr><td><h2>Bibtex</h2></td></tr>
                             <tr>
                             <td class="border_all" style="text-align:left;">
                                 <pre style="font-size: 10px; text-align: left;">
-    @inproceedings{to appear,
-      author    = {Georg Haaser and
-                   Harald Steinlechner and
-                   Michael May and
-                   Michael Schw{\"{a}}rzler and
-                   Stefan Maierhofer and
-                   Robert F. Tobler},
-      title     = {CoSMo: Intent-based Composition of Shader Modules},
-      booktitle = {{GRAPP}},
-      pages     = {189--199},
-      publisher = {SciTePress},
-      year      = {2014}
-    }
+@inproceedings{Haaser:2015:IRV:2790060.2790073,
+ author = {Haaser, Georg and Steinlechner, Harald and Maierhofer, Stefan and Tobler, Robert F.},
+ title = {An Incremental Rendering VM},
+ booktitle = {Proceedings of the 7th Conference on High-Performance Graphics},
+ series = {HPG '15},
+ year = {2015},
+ isbn = {978-1-4503-3707-6},
+ location = {Los Angeles, California},
+ pages = {51--60},
+ numpages = {10},
+ url = {http://doi.acm.org/10.1145/2790060.2790073},
+ doi = {10.1145/2790060.2790073},
+ acmid = {2790073},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {dynamic compilation, optimization, rendering, virtual machines},
+} 
+
                                         </pre>
                                     </td>
                                 </tr>
-                    </table>-->
+                    </table>
         </div>
         
         <small><small>
-        |&nbsp;&nbsp;maintained by harald steinlechner &nbsp;&nbsp;|&nbsp;&nbsp; hs -at- vrvis.at &nbsp;&nbsp;|&nbsp;&nbsp; last update: 06.12.2018 &nbsp;&nbsp;|&nbsp;&nbsp;  <br>
+        |&nbsp;&nbsp;maintained by harald steinlechner &nbsp;&nbsp;|&nbsp;&nbsp; hs -at- vrvis.at &nbsp;&nbsp;|&nbsp;&nbsp; last update: 24.12.2018 &nbsp;&nbsp;|&nbsp;&nbsp;  <br>
         </small></small>
         <p>
 </td>
